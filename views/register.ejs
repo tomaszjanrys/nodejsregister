@@ -17,6 +17,17 @@
         <h5>Node js express ejs bootstarp</h5>
     </div>
     <div class="conatainer">
+        <% if(typeof alert != 'undefined') { %>
+            <% alert.forEach(function(error) { %>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <%= error.msg %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+            <% }) %>
+        <% } %>
+
         <form action="/register" method="POST">
             <div class="form-group">
                 <label for="username" class="form-label">Username</label>
@@ -24,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" name="email" id="eimal">
+                <input type="email" class="form-control" name="email" id="email">
             </div>
             <div class="form-group">
                 <label for="password1" class="form-label">Password</label>
