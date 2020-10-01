@@ -25,11 +25,11 @@ app.get('/register', (req,res)=>{
 app.post('/register', urlencodeParser,[
     check('username','Nazwa musi zawierac min 3 znanki').exists().isLength({min:3}),
     check('email','Email nie jest prawidlowy.').isEmail().normalizeEmail(),
-    check('password','Haslo').exists().isLength({min:3,max:10})
+    check('password','Haslo').exists().isLength({min:3,max:10}),
+    check('password1','Pass 1 nie pasuje').exists()
 ],(req,res)=>{
 const errors = validationResult(req);
 if(!errors.isEmpty()){
-    //return res.status(422).jsonp(errors.array())
     const alert = errors.array()
     res.render('register',{
         alert
